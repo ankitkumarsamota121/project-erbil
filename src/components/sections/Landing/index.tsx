@@ -17,16 +17,22 @@ import Container from '../../layout/Container';
  */
 const StyledOuterDiv = styled.div`
   height: 90vh;
-  ${tw`w-screen bg-background flex flex-col justify-center items-center`}
+  ${tw`w-screen bg-background`}
+  ${tw`flex flex-col justify-center items-center`}
 `;
 
 const Grid = styled.div`
-  ${tw`grid grid-cols-1 sm:grid-cols-3 md:gap-8 text-primary`}
+  ${tw`grid grid-cols-1 sm:grid-cols-3 md:gap-8`}
 `;
 
 const StyledHeading = styled.div`
   font-family: 'montserrat';
-  ${tw`text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-primary font-bold`}
+  ${tw`text-primary font-bold`}
+  ${tw`text-6xl md:text-7xl lg:text-8xl xl:text-9xl`}
+
+  @media (max-width: 360px) {
+    ${tw`text-5xl`}
+  }
 `;
 
 const StyledOutline = styled.div`
@@ -34,22 +40,42 @@ const StyledOutline = styled.div`
   text-shadow: -1px -1px 0 #efedff, 1px -1px 0 #efedff, -1px 1px 0 #efedff,
     1px 1px 0 #efedff;
 
-  ${tw`text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-background font-bold`};
+  ${tw`text-background font-bold`};
+  ${tw`text-6xl md:text-7xl lg:text-8xl xl:text-9xl`};
 `;
 
 const StyledSubHeading = styled.div`
   font-family: 'space grotesk';
-  ${tw`text-2xl md:text-3xl xl:text-5xl text-secondary font-bold tracking-wide`}
+  ${tw`text-secondary font-semibold tracking-wide`}
+  ${tw`text-2xl md:text-3xl xl:text-5xl`}
+`;
+
+const StyledNavigation = styled.div`
+  ${tw`hidden sm:flex`}
+  ${tw`flex-col justify-center`}
+  ${tw`space-y-4 md:space-y-6 lg:space-y-8`}
 `;
 
 const StyledNavLink = styled.div`
   font-family: 'space grotesk';
   cursor: pointer;
-  ${tw`text-2xl hidden sm:block lg:text-3xl text-secondary tracking-wide`}
+  ${tw`hidden sm:block`}
+  ${tw`text-secondary tracking-wide`}
+  ${tw`text-2xl lg:text-3xl`}
 `;
 
 const Row = styled.div`
-  ${tw`mt-20 grid grid-cols-1 md:grid-cols-3`}
+  ${tw`grid grid-cols-1 sm:grid-cols-3`}
+  ${tw`mt-24`}
+`;
+
+const StyledIconContainer = styled.div`
+  ${tw`flex justify-center md:justify-start`}
+  ${tw`sm:col-start-3 space-x-8  md:space-x-12`}
+`;
+
+const StyledIcon = styled.div`
+  ${tw`w-8 h-8 md:w-12 md:h-12`}
 `;
 
 /**
@@ -57,7 +83,7 @@ const Row = styled.div`
  */
 const Landing = () => {
   const [idx, setIdx] = useState(0);
-  const phrases = ['Hey There!', 'नमस्ते!', 'Bonjour!', 'Hola!', 'Ciao!'];
+  const phrases = ['Hello!', 'नमस्ते!', 'Bonjour!', 'Hola!', 'Ciao!'];
 
   useEffect(() => {
     setTimeout(() => {
@@ -72,23 +98,29 @@ const Landing = () => {
     <StyledOuterDiv>
       <Container>
         <Grid>
-          <div tw="col-span-1 sm:col-span-2 space-y-2">
+          <div tw="col-span-1 sm:col-span-2 space-y-4">
             <StyledOutline>{phrases[idx]}</StyledOutline>
             <StyledHeading>I&apos;m Ankit.</StyledHeading>
             <StyledSubHeading>Full Stack Developer</StyledSubHeading>
           </div>
-          <div tw="hidden md:flex flex flex-col justify-center space-y-4 md:space-y-8">
+          <StyledNavigation>
             <StyledNavLink>My Projects</StyledNavLink>
             <StyledNavLink>About Me</StyledNavLink>
             <StyledNavLink>Contact Me</StyledNavLink>
-          </div>
+          </StyledNavigation>
         </Grid>
         <Row>
-          <div tw="md:col-start-3 max-h-12 flex justify-center md:justify-start space-x-8  md:space-x-12">
-            <GithubIcon tw="w-8 h-8 md:w-12 md:h-12" />
-            <LinkedinIcon tw="w-8 h-8 md:w-12 md:h-12" />
-            <InstagramIcon tw="w-8 h-8 md:w-12 md:h-12" />
-          </div>
+          <StyledIconContainer>
+            <StyledIcon>
+              <GithubIcon tw="h-full w-full" />
+            </StyledIcon>
+            <StyledIcon>
+              <LinkedinIcon tw="h-full w-full" />
+            </StyledIcon>
+            <StyledIcon>
+              <InstagramIcon tw="h-full w-full" />
+            </StyledIcon>
+          </StyledIconContainer>
         </Row>
       </Container>
     </StyledOuterDiv>

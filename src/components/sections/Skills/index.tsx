@@ -22,7 +22,11 @@ const OuterGrid = styled.div`
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
   ${tw`bg-paper rounded-2xl w-full`}
   ${tw`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-0`}
-  ${tw`p-4 lg:p-8 `}
+  ${tw`p-6 lg:p-8 `}
+
+  @media (max-width: 420px) {
+    ${tw`p-4`}
+  }
 `;
 
 const SkillsGrid = styled.div`
@@ -58,6 +62,10 @@ const StyledHeading = styled.div`
   ${tw`text-5xl sm:text-6xl xl:text-7xl`}
   ${tw`text-center lg:text-left`}
   ${tw`text-primary font-bold`}
+
+  @media (max-width: 420px) {
+    ${tw`text-4xl`}
+  }
 `;
 
 const Button = styled.button`
