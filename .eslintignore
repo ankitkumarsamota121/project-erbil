@@ -1,0 +1,8 @@
+node_modules
+public
+.cache
+gatsby-config.js
+gatsby-browser.js
+gatsby-node.js
+gatsby-ssr.js
+tailwind.config.js
