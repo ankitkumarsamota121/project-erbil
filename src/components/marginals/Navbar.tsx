@@ -1,63 +1,51 @@
-import React from 'react';
+import React, {useRef, useState, useEffect, Fragment} from 'react';
 import styled from '@emotion/styled';
+
+import {css} from '@emotion/css';
 import tw from 'twin.macro';
 // import {motion, useAnimation} from 'framer-motion';
 
 import DesktopNav from './DesktopNav';
 // import MobileNav from './MobileNav';
 import Container from '../layout/Container';
-// import useScrollDirection from '../../hooks/useScrollDirection';
+import useScrollDirection from '../../hooks/useScrollDirection';
 
 /**
  * * Navbar Styling
  */
-// const Div = styled(motion.div)`
-const Div = styled.div`
-  ${tw`fixed top-0 w-full h-20  z-10 flex justify-center items-center bg-background`}
+const hidden = css`
+  opacity: 0;
+  transform: translateY(-120px);
+  transition-duration: 500ms;
 `;
 
-// const divVariants = {
-//   hidden: {
-//     y: -100,
-//     opacity: 0,
-//     transition: {
-//       type: 'tween',
-//       duration: 0.25,
-//       ease: 'easeInOut',
-//     },
-//   },
-//   visible: {
-//     y: 0,
-//     opacity: 1,
-//     transition: {
-//       type: 'tween',
-//       duration: 0.25,
-//       ease: 'easeInOut',
-//     },
-//   },
-// };
+const visible = css`
+  opacity: 1;
+  transform: translateY(0px);
+  transition-duration: 1s;
+`;
+
+const Div = styled.div`
+  ${tw`fixed top-0 z-10 bg-background`}
+  ${tw`flex justify-center items-center`}
+  ${tw`w-full h-24`};
+`;
 
 /**
  * * Navbar Component
  */
-const Navbar = () => (
-  // const controls = useAnimation();
-  // const direction = useScrollDirection();
+const Navbar = () => {
+  const direction = useScrollDirection();
 
-  // useEffect(() => {
-  //   if (!direction.isDown) {
-  //     controls.start('visible');
-  //   } else {
-  //     controls.start('hidden');
-  //   }
-  // }, [direction]);
-  // <Div initial="initial" variants={divVariants} animate={controls}>
-  <Div>
-    <Container>
-      <DesktopNav />
-      {/* <MobileNav /> */}
-    </Container>
-  </Div>
-);
+  useEffect(() => {}, [direction]);
+  return (
+    <Div className={direction.isUp ? hidden : visible}>
+      <Container>
+        <DesktopNav />
+        {/* <MobileNav /> */}
+      </Container>
+    </Div>
+  );
+};
 
 export default Navbar;

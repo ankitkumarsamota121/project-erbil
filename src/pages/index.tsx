@@ -1,5 +1,5 @@
 import React from 'react';
-// import Navbar from '../components/marginals/Navbar';
+import Navbar from '../components/marginals/Navbar';
 import Landing from '../components/sections/Landing';
 import Skills from '../components/sections/Skills';
 
@@ -11,7 +11,7 @@ import Layout from '../layout';
 
 const IndexPage = () => (
   <Layout>
-    {/* <Navbar /> */}
+    <Navbar />
     <Landing />
     <Skills />
     {/* <Footer /> */}
