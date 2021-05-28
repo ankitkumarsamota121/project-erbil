@@ -1,25 +1,33 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from '@emotion/styled';
+import {css} from '@emotion/css';
 import tw from 'twin.macro';
-import {motion, useCycle} from 'framer-motion';
 
 import Logo from './Logo';
 import MenuToggle from './MenuToggle';
 import Navigation from './MobileNavigation';
-import useDimensions from '../../hooks/useDimensions';
+import useScrollDirection from '../../hooks/useScrollDirection';
 
 /**
  * * Mobile Navbar Styling
  */
-const Nav = styled(motion.nav)`
+const Nav = styled.nav`
   ${tw`container flex md:hidden justify-between items-center`}
 `;
 
-const Div = styled(motion.div)`
+const Div = styled.div`
   ${tw`relative h-5 w-5`}
 `;
 
-const Sidebar = styled(motion.div)`
+const sidebarOpen = css`
+  clip-path: circle(1200px);
+`;
+
+const sidebarClosed = css`
+  clip-path: circle(0px);
+`;
+
+const Sidebar = styled.div`
   position: absolute;
   top: -100vh;
   right: -100vw;
@@ -27,45 +35,34 @@ const Sidebar = styled(motion.div)`
   width: 200vw;
   height: 200vh;
   z-index: 100;
+  transition-duration: 1000ms;
   ${tw`bg-background`}
 `;
-
-/**
- * * Variants
- */
-const sidebar = {
-  open: (height = 1000) => ({
-    clipPath: `circle(${height * 2 + 200}px)`,
-    transition: {
-      type: 'spring',
-      stiffness: 20,
-      restDelta: 2,
-    },
-  }),
-  closed: {
-    clipPath: 'circle(0px)',
-    transition: {
-      type: 'spring',
-      stiffness: 400,
-      damping: 40,
-    },
-  },
-};
 
 /**
  * * Mobile Navbar Component
  */
 const Navbar = () => {
-  const [isOpen, toggleOpen] = useCycle(false, true);
-  const {height} = useDimensions();
+  const [isOpen, toggleOpen] = useState(false);
+  const direction = useScrollDirection();
+
+  const toggleHandler = () => {
+    toggleOpen(state => !state);
+  };
+
+  useEffect(() => {
+    if (direction.isUp && isOpen) {
+      toggleHandler();
+    }
+  }, [direction, isOpen]);
 
   return (
     <Nav>
       <Logo />
-      <Div initial={false} animate={isOpen ? 'open' : 'closed'} custom={height}>
-        <Sidebar variants={sidebar} />
-        <MenuToggle toggle={() => toggleOpen()} />
-        <Navigation isOpen={isOpen} toggle={() => toggleOpen()} />
+      <Div>
+        <MenuToggle isOpen={isOpen} toggle={toggleHandler} />
+        <Sidebar className={isOpen ? sidebarOpen : sidebarClosed} />
+        <Navigation isOpen={isOpen} toggle={toggleHandler} />
       </Div>
     </Nav>
   );

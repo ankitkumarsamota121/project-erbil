@@ -4,8 +4,8 @@ import throttle from 'lodash/throttle';
 const useScrollDirection = () => {
   const scrollPos = useRef(0);
   const [direction, setDirection] = useState({
-    isDown: true,
-    isUp: false,
+    isDown: false,
+    isUp: true,
   });
 
   useEffect(() => {

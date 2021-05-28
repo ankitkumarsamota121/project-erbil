@@ -1,6 +1,5 @@
 import * as React from 'react';
-import {motion} from 'framer-motion';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import tw from 'twin.macro';
 import {Link} from 'react-scroll';
 
@@ -12,8 +11,9 @@ interface Props {
 /**
  * * MenuItem Styling
  */
-const MotionLi = styled(motion.li)`
+const MotionLi = styled.li`
   z-index: 900;
+  display: block;
 `;
 
 const Title = styled.div`
@@ -24,46 +24,20 @@ const Title = styled.div`
 `;
 
 /**
- * * MenuItem Variants
- */
-const variants = {
-  open: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      y: {stiffness: 1000, velocity: -100},
-    },
-  },
-  closed: {
-    y: 50,
-    opacity: 0,
-    transition: {
-      y: {stiffness: 1000},
-    },
-  },
-};
-
-/**
  * * MenuItem Component
  */
-const MenuItem = ({i, toggle}: Props) => {
-  return (
-    <MotionLi
-      variants={variants}
-      whileHover={{scale: 1.1}}
-      whileTap={{scale: 0.95}}
+const MenuItem = ({i, toggle}: Props) => (
+  <MotionLi>
+    <Link
+      to={`${i.toLowerCase()}-section`}
+      spy
+      smooth
+      duration={500}
+      onClick={toggle}
     >
-      <Link
-        to={`${i.toLowerCase()}-section`}
-        spy
-        smooth
-        duration={500}
-        onClick={toggle}
-      >
-        <Title>{i}</Title>
-      </Link>
-    </MotionLi>
-  );
-};
+      <Title>{i}</Title>
+    </Link>
+  </MotionLi>
+);
 
 export default MenuItem;

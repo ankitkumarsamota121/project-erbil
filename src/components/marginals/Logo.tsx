@@ -21,7 +21,7 @@ const LogoDiv = styled.div`
  */
 const Logo = () => (
   <LogoDiv onClick={() => scroll.scrollToTop()}>
-    <LogoSVG tw="h-12 w-12" />
+    <LogoSVG tw="h-10 w-10 md:h-12 md:w-12" />
   </LogoDiv>
 );
 

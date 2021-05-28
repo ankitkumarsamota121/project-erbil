@@ -1,9 +1,11 @@
-import * as React from 'react';
-import styled from 'styled-components';
+import React from 'react';
+import styled from '@emotion/styled';
+import {css} from '@emotion/css';
 import tw from 'twin.macro';
 import {motion} from 'framer-motion';
 
 interface Props {
+  isOpen: boolean;
   toggle: () => void;
 }
 
@@ -26,36 +28,41 @@ const Button = styled.button`
   ${tw`text-primary`}
 `;
 
+const open = css`
+  transition-duration: 100ms;
+`;
+
+const closed = css`
+  transition-duration: 100ms;
+`;
+
+const openMid = css`
+  opacity: 0;
+  transition-duration: 100ms;
+`;
+
+const closedMid = css`
+  opacity: 1;
+  transition-duration: 100ms;
+`;
+
 /**
  * * MenuToggle Component
  */
-const MenuToggle = ({toggle}: Props) => {
-  return (
-    <Button onClick={toggle}>
-      <svg width="23" height="23" viewBox="0 0 23 23">
-        <Path
-          variants={{
-            closed: {d: 'M 2 2.5 L 20 2.5'},
-            open: {d: 'M 3 16.5 L 17 2.5'},
-          }}
-        />
-        <Path
-          d="M 2 9.423 L 20 9.423"
-          variants={{
-            closed: {opacity: 1},
-            open: {opacity: 0},
-          }}
-          transition={{duration: 0.1}}
-        />
-        <Path
-          variants={{
-            closed: {d: 'M 2 16.346 L 20 16.346'},
-            open: {d: 'M 3 2.5 L 17 16.346'},
-          }}
-        />
-      </svg>
-    </Button>
-  );
-};
+const MenuToggle = ({isOpen, toggle}: Props) => (
+  <Button onClick={toggle}>
+    <svg width="23" height="23" viewBox="0 0 23 23">
+      <Path
+        d={isOpen ? 'M 3 16.5 L 17 2.5' : 'M 2 2.5 L 20 2.5'}
+        className={isOpen ? open : closed}
+      />
+      <Path d="M 2 9.423 L 20 9.423" className={isOpen ? openMid : closedMid} />
+      <Path
+        d={isOpen ? 'M 3 2.5 L 17 16.346' : 'M 2 16.346 L 20 16.346'}
+        className={isOpen ? open : closed}
+      />
+    </svg>
+  </Button>
+);
 
 export default MenuToggle;

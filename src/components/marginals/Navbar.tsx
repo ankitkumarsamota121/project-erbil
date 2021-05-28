@@ -1,12 +1,11 @@
-import React, {useRef, useState, useEffect, Fragment} from 'react';
+import React, {useEffect} from 'react';
 import styled from '@emotion/styled';
 
 import {css} from '@emotion/css';
 import tw from 'twin.macro';
-// import {motion, useAnimation} from 'framer-motion';
 
 import DesktopNav from './DesktopNav';
-// import MobileNav from './MobileNav';
+import MobileNav from './MobileNav';
 import Container from '../layout/Container';
 import useScrollDirection from '../../hooks/useScrollDirection';
 
@@ -28,7 +27,7 @@ const visible = css`
 const Div = styled.div`
   ${tw`fixed top-0 z-10 bg-background`}
   ${tw`flex justify-center items-center`}
-  ${tw`w-full h-24`};
+  ${tw`w-full h-16 md:h-24`};
 `;
 
 /**
@@ -42,7 +41,7 @@ const Navbar = () => {
     <Div className={direction.isUp ? hidden : visible}>
       <Container>
         <DesktopNav />
-        {/* <MobileNav /> */}
+        <MobileNav />
       </Container>
     </Div>
   );

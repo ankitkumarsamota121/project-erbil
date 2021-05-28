@@ -59,7 +59,7 @@ const StyledContent = styled.div`
 const StyledHeading = styled.div`
   font-family: 'montserrat';
   ${tw`mx-auto lg:mx-0`}
-  ${tw`text-5xl sm:text-6xl xl:text-7xl`}
+  ${tw`text-5xl md:text-6xl xl:text-7xl`}
   ${tw`text-center lg:text-left`}
   ${tw`text-primary font-bold`}
 
