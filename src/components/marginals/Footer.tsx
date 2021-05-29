@@ -11,7 +11,7 @@ const Div = styled.div`
 
 const Text = styled.div`
   font-family: 'space grotesk';
-  ${tw`text-primary flex justify-center`}
+  ${tw`text-primary flex justify-center font-light`}
 `;
 
 const Footer = () => (
