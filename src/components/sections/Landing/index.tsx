@@ -16,7 +16,7 @@ import Container from '../../layout/Container';
  * * Landing Styling
  */
 const StyledOuterDiv = styled.div`
-  height: 90vh;
+  height: 80vh;
   ${tw`w-screen bg-background`}
   ${tw`flex flex-col justify-center items-center`}
 `;

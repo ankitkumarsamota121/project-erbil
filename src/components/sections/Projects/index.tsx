@@ -12,13 +12,15 @@ import Project from './Project';
  * * Projects Section Styling
  */
 const Grid = styled.div`
-  ${tw`grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 xl:gap-12 mt-12 md:mt-20`}
+  ${tw`grid grid-cols-1 lg:grid-cols-2`}
+  ${tw`gap-6 lg:gap-8 xl:gap-12`}
+  ${tw`mt-12 md:mt-20`}
 `;
 
 const StyledHeading = styled.div`
   font-family: 'montserrat';
   ${tw`mx-auto lg:mx-0`}
-  ${tw`text-5xl sm:text-6xl xl:text-7xl`}
+  ${tw`text-5xl sm:text-6xl`}
   ${tw`text-center`}
   ${tw`text-primary font-bold`}
 
