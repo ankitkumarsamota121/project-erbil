@@ -75,8 +75,8 @@ module.exports = {
         name: 'Ankit Samota : Portfolio',
         short_name: 'Ankit Samota',
         start_url: `/`,
-        background_color: '#0F0824',
-        theme_color: '#6E44FF',
+        background_color: '#101010',
+        theme_color: '#F73859',
         display: `minimal-ui`,
         icon: `src/images/icon.png`, // This path is relative to the root of the site.
       },
