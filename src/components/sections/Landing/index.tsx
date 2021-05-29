@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import styled from '@emotion/styled';
 import tw from 'twin.macro';
-// import {Link} from 'react-scroll';
+import {Link} from 'react-scroll';
 
 // @ts-expect-error : Just importing a friendly SVG
 import GithubIcon from '../../../images/github.svg';
@@ -16,7 +16,7 @@ import Container from '../../layout/Container';
  * * Landing Styling
  */
 const StyledOuterDiv = styled.div`
-  height: 80vh;
+  height: 85vh;
   ${tw`w-screen bg-background`}
   ${tw`flex flex-col justify-center items-center`}
 `;
@@ -39,7 +39,6 @@ const StyledOutline = styled.div`
   font-family: 'poppins';
   text-shadow: -1px -1px 0 #efedff, 1px -1px 0 #efedff, -1px 1px 0 #efedff,
     1px 1px 0 #efedff;
-
   ${tw`text-background font-bold`};
   ${tw`text-6xl md:text-7xl lg:text-8xl xl:text-9xl`};
 `;
@@ -56,9 +55,18 @@ const StyledNavigation = styled.div`
   ${tw`space-y-4 md:space-y-6 lg:space-y-8`}
 `;
 
-const StyledNavLink = styled.div`
+const StyledNavLink = styled(Link)`
   font-family: 'space grotesk';
   cursor: pointer;
+  transform-origin: left;
+  transition-duration: 300ms;
+  &:hover {
+    transform: scale(1.1);
+  }
+  &:active {
+    transform: scale(0.9);
+  }
+
   ${tw`hidden sm:block`}
   ${tw`text-secondary tracking-wide`}
   ${tw`text-2xl lg:text-3xl`}
@@ -74,7 +82,16 @@ const StyledIconContainer = styled.div`
   ${tw`sm:col-start-3 space-x-8  md:space-x-12`}
 `;
 
-const StyledIcon = styled.div`
+const StyledIcon = styled.a`
+  cursor: pointer;
+  transform-origin: center;
+  transition-duration: 300ms;
+  &:hover {
+    transform: scale(1.1);
+  }
+  &:active {
+    transform: scale(0.9);
+  }
   ${tw`w-8 h-8 md:w-12 md:h-12`}
 `;
 
@@ -104,20 +121,40 @@ const Landing = () => {
             <StyledSubHeading>Full Stack Developer</StyledSubHeading>
           </div>
           <StyledNavigation>
-            <StyledNavLink>My Projects</StyledNavLink>
-            <StyledNavLink>About Me</StyledNavLink>
-            <StyledNavLink>Contact Me</StyledNavLink>
+            <StyledNavLink
+              to="projects-section"
+              smooth
+              duration={500}
+              offset={-120}
+            >
+              My Projects
+            </StyledNavLink>
+            <StyledNavLink to="about-section" smooth duration={500}>
+              About Me
+            </StyledNavLink>
+            <StyledNavLink to="about-section" smooth duration={500}>
+              Contact Me
+            </StyledNavLink>
           </StyledNavigation>
         </Grid>
         <Row>
           <StyledIconContainer>
-            <StyledIcon>
+            <StyledIcon
+              target="_blank"
+              href="https://github.com/ankitkumarsamota121"
+            >
               <GithubIcon tw="h-full w-full" />
             </StyledIcon>
-            <StyledIcon>
+            <StyledIcon
+              target="_blank"
+              href="https://www.linkedin.com/in/ankitkumarsamota121/"
+            >
               <LinkedinIcon tw="h-full w-full" />
             </StyledIcon>
-            <StyledIcon>
+            <StyledIcon
+              target="_blank"
+              href="https://www.instagram.com/ak_samota/"
+            >
               <InstagramIcon tw="h-full w-full" />
             </StyledIcon>
           </StyledIconContainer>

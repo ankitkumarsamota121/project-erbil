@@ -71,6 +71,18 @@ const StyledHeading = styled.div`
 
 const Button = styled.button`
   font-family: 'space grotesk';
+  outline: none;
+  transform-origin: center;
+  transition-duration: 300ms;
+  &:hover {
+    transform: scale(1.1);
+  }
+  &:active {
+    transform: scale(0.9);
+  }
+  &:focus {
+    outline: none;
+  }
   ${tw`bg-primary text-primary rounded-full`}
   ${tw`hidden sm:block`}
   ${tw`text-xl xl:text-2xl`}
@@ -127,7 +139,9 @@ const Skills = () => (
         </SkillsGrid>
         <StyledContent>
           <StyledHeading>I build things for the web</StyledHeading>
-          <Button>Get in touch</Button>
+          <a href="mailto:ankitkumarsamota121@gmail.com">
+            <Button>Get in touch</Button>
+          </a>
         </StyledContent>
       </OuterGrid>
     </Container>

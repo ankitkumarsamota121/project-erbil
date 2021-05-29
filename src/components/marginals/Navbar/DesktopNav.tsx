@@ -19,7 +19,15 @@ const Ul = styled.ul`
 const Li = styled(Link)`
   font-family: 'Space Grotesk';
   cursor: pointer;
-  ${tw`text-primary font-semibold tracking-wide`}
+  transform-origin: center;
+  transition-duration: 300ms;
+  &:hover {
+    transform: scale(1.1);
+  }
+  &:active {
+    transform: scale(0.9);
+  }
+  ${tw`block text-primary tracking-wide`}
   ${tw`text-xl lg:text-2xl`}
 `;
 
@@ -31,7 +39,13 @@ const DesktopNav = () => (
     <Logo />
     <Ul>
       <li>
-        <Li tw="mr-12" to="projects-section" smooth duration={500}>
+        <Li
+          tw="mr-12"
+          to="projects-section"
+          smooth
+          duration={500}
+          offset={-120}
+        >
           Projects
         </Li>
       </li>
@@ -41,7 +55,7 @@ const DesktopNav = () => (
         </Li>
       </li>
       <li>
-        <Li tw="lg:mr-20" to="contact-section" smooth duration={500}>
+        <Li tw="lg:mr-20" to="about-section" smooth duration={500}>
           Contact
         </Li>
       </li>

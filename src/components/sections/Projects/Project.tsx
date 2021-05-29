@@ -75,6 +75,14 @@ const StyledIconsDiv = styled.div`
 `;
 
 const Icon = styled.a`
+  transform-origin: center;
+  transition-duration: 300ms;
+  &:hover {
+    transform: scale(1.1);
+  }
+  &:active {
+    transform: scale(0.9);
+  }
   ${tw`h-6 w-6`}
   ${tw`sm:w-8 sm:h-8`}
 `;
@@ -119,12 +127,12 @@ const ProjectDetails = ({
         </StyledStackDiv>
         <StyledIconsDiv>
           {github.length > 0 && (
-            <Icon href={github}>
+            <Icon href={github} target="_blank">
               <GithubIcon tw="h-full w-full" />
             </Icon>
           )}
           {link.length > 0 && (
-            <Icon href={github}>
+            <Icon href={link} target="_blank">
               <LinkIcon tw="h-full w-full" />
             </Icon>
           )}

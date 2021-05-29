@@ -11,12 +11,14 @@ import Container from '../../layout/Container';
  * * About Section Styling
  */
 const Grid = styled.div`
-  ${tw`grid grid-cols-1 md:grid-cols-9 gap-8 sm:gap-16 lg:gap-0`}
+  ${tw`grid grid-cols-1 md:grid-cols-9`}
+  ${tw`gap-8 sm:gap-16 lg:gap-0`}
   ${tw`mt-16 md:mt-20`}
 `;
 
 const GridImage = styled.div`
-  ${tw`flex justify-center items-center md:col-start-1 md:col-span-4`}
+  ${tw`flex justify-center items-center`}
+  ${tw`md:col-start-1 md:col-span-4`}
 `;
 
 const StyledImage = styled.div`
@@ -44,8 +46,10 @@ const ShadowDiv = styled.div`
 
 const StyledText = styled.div`
   font-family: 'Space Grotesk';
-  ${tw`md:text-xl max-w-lg font-light text-left text-secondary xl:text-2xl md:col-start-5 md:col-span-5`}
+  ${tw`max-w-lg font-light text-left text-secondary`}
+  ${tw`md:col-start-5 md:col-span-5`}
   ${tw`flex flex-col`}
+  ${tw`md:text-xl xl:text-2xl`}
 `;
 
 const StyledHeading = styled.div`
@@ -66,6 +70,17 @@ const StyledHeading = styled.div`
 
 const Button = styled.button`
   font-family: 'space grotesk';
+  transform-origin: center;
+  transition-duration: 300ms;
+  &:hover {
+    transform: scale(1.1);
+  }
+  &:active {
+    transform: scale(0.9);
+  }
+  &:focus {
+    outline: none;
+  }
   ${tw`bg-primary text-primary rounded-full`}
   ${tw`text-xl xl:text-2xl`}
   ${tw`self-center sm:self-start`}
@@ -116,7 +131,9 @@ const About = () => {
               programming, I love the challenge of finding a way and discovering
               solutions.
             </p>
-            <Button>Get in touch</Button>
+            <a href="mailto:ankitkumarsamota121@gmail.com">
+              <Button>Get in touch</Button>
+            </a>
           </StyledText>
         </Grid>
       </Container>
