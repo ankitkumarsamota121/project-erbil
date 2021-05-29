@@ -3,10 +3,10 @@ import styled from '@emotion/styled';
 import {css} from '@emotion/css';
 import tw from 'twin.macro';
 
-import Logo from './Logo';
+import Logo from '../Logo';
 import MenuToggle from './MenuToggle';
 import Navigation from './MobileNavigation';
-import useScrollDirection from '../../hooks/useScrollDirection';
+import useScrollDirection from '../../../hooks/useScrollDirection';
 
 /**
  * * Mobile Navbar Styling

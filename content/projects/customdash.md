@@ -6,6 +6,10 @@ description:
   customer satisfaction levels.'
 slug: customdash
 github: 'https://github.com/ankitkumarsamota121/CustomDash'
+stack:
+  - Python
+  - Dash
+  - Pandas
 link: ''
 thumb: '../../src/images/customdash.png'
 ---

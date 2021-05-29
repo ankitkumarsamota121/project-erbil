@@ -62,6 +62,7 @@ const StyledHeading = styled.div`
   ${tw`text-5xl md:text-6xl xl:text-7xl`}
   ${tw`text-center lg:text-left`}
   ${tw`text-primary font-bold`}
+  ${tw`max-w-md`}
 
   @media (max-width: 420px) {
     ${tw`text-4xl`}
@@ -125,13 +126,7 @@ const Skills = () => (
           </SkillDiv>
         </SkillsGrid>
         <StyledContent>
-          <StyledHeading>
-            I build
-            <br />
-            things for
-            <br />
-            the web
-          </StyledHeading>
+          <StyledHeading>I build things for the web</StyledHeading>
           <Button>Get in touch</Button>
         </StyledContent>
       </OuterGrid>

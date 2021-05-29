@@ -6,6 +6,10 @@ description:
   of Data Programming.'
 slug: sadrat
 github: 'https://github.com/purplepotion/sadrat'
+stack:
+  - Python
+  - Dash
+  - Pandas
 link: ''
 thumb: '../../src/images/sadrat.png'
 ---

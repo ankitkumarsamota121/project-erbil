@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../components/marginals/Navbar';
 import Landing from '../components/sections/Landing';
 import Skills from '../components/sections/Skills';
+import Projects from '../components/sections/Projects';
 
 import Layout from '../layout';
 
@@ -14,6 +15,7 @@ const IndexPage = () => (
     <Navbar />
     <Landing />
     <Skills />
+    <Projects />
     {/* <Footer /> */}
   </Layout>
 );

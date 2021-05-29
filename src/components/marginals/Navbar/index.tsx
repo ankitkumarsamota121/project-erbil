@@ -6,8 +6,8 @@ import tw from 'twin.macro';
 
 import DesktopNav from './DesktopNav';
 import MobileNav from './MobileNav';
-import Container from '../layout/Container';
-import useScrollDirection from '../../hooks/useScrollDirection';
+import Container from '../../layout/Container';
+import useScrollDirection from '../../../hooks/useScrollDirection';
 
 /**
  * * Navbar Styling
