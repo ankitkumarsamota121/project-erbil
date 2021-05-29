@@ -3,22 +3,24 @@ import styled from '@emotion/styled';
 import tw from 'twin.macro';
 
 const Div = styled.div`
-  ${tw`w-screen h-40 bg-primary flex flex-col justify-center items-center`}
+  ${tw`w-screen bg-background`}
+  ${tw`flex flex-col justify-center items-center`}
+  ${tw`h-20`}
+  ${tw`mt-24 md:mt-32`}
 `;
 
-const Text = styled.a`
-  font-family: 'Space Grotesk';
-  ${tw`text-primary`}
+const Text = styled.div`
+  font-family: 'space grotesk';
+  ${tw`text-primary flex justify-center font-light`}
 `;
 
 const Footer = () => (
   <Div>
-    <Text href="https://github.com/ankitkumarsamota121/project-amsterdam">
-      Designed & Developed by{' '}
-      <strong className="text-white underline">Ankit Samota</strong>
-    </Text>
-    <Text href="https://www.flaticon.com/">
-      Icons from <strong className="text-white underline">Flaticon</strong>
+    <Text>
+      &copy; Designed & Developed by
+      <a href="https://github.com/ankitkumarsamota121">
+        <strong tw="text-accent ml-2">Ankit Samota</strong>
+      </a>
     </Text>
   </Div>
 );

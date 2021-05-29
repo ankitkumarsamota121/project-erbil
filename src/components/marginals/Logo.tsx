@@ -3,20 +3,26 @@ import styled from '@emotion/styled';
 import tw from 'twin.macro';
 import {animateScroll as scroll} from 'react-scroll';
 
+// @ts-expect-error : Just importing a friendly SVG
+import LogoSVG from '../../images/logo.svg';
+
 /**
  * * Logo Styling
  */
 const LogoDiv = styled.div`
   font-family: 'poppins';
   cursor: pointer;
-  ${tw`text-2xl md:text-3xl lg:text-4xl font-bold text-accent`}
+  ${tw`font-bold text-accent`}
+  ${tw`text-2xl md:text-3xl lg:text-4xl`}
 `;
 
 /**
  * * Logo Component
  */
 const Logo = () => (
-  <LogoDiv onClick={() => scroll.scrollToTop()}>ankit samota</LogoDiv>
+  <LogoDiv onClick={() => scroll.scrollToTop()}>
+    <LogoSVG tw="h-10 w-10 md:h-12 md:w-12" />
+  </LogoDiv>
 );
 
 export default Logo;
