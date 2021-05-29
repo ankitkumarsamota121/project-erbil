@@ -2,7 +2,6 @@ import React from 'react';
 import styled from '@emotion/styled';
 import {css} from '@emotion/css';
 import tw from 'twin.macro';
-import {motion} from 'framer-motion';
 
 interface Props {
   isOpen: boolean;
@@ -12,7 +11,7 @@ interface Props {
 /**
  * * MenuToggle Styling
  */
-const Path = styled(motion.path)`
+const Path = styled.path`
   fill: transparent;
   stroke-width: 3;
   stroke: #efedff;
