@@ -51,7 +51,7 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    if (direction.isUp && isOpen) {
+    if (direction.isDown && isOpen) {
       toggleHandler();
     }
   }, [direction, isOpen]);
