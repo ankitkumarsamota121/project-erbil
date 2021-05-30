@@ -1,7 +1,6 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from '@emotion/styled';
-
-import {css} from '@emotion/css';
+import {motion, useAnimation} from 'framer-motion';
 import tw from 'twin.macro';
 
 import DesktopNav from './DesktopNav';
@@ -12,33 +11,49 @@ import useScrollDirection from '../../../hooks/useScrollDirection';
 /**
  * * Navbar Styling
  */
-const hidden = css`
-  opacity: 0;
-  transform: translateY(-120px);
-  transition-duration: 500ms;
-`;
-
-const visible = css`
-  opacity: 1;
-  transform: translateY(0px);
-  transition-duration: 1s;
-`;
-
-const Div = styled.div`
+const Div = styled(motion.div)`
   ${tw`fixed top-0 z-10 bg-background`}
   ${tw`flex justify-center items-center`}
   ${tw`w-full h-16 md:h-24`};
 `;
 
+const divVariants = {
+  hidden: {
+    y: -100,
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+  },
+};
+
 /**
  * * Navbar Component
  */
 const Navbar = () => {
+  const controls = useAnimation();
   const direction = useScrollDirection();
+  const [scrolledToTop, setScrolledToTop] = useState(true);
 
-  useEffect(() => {}, [direction]);
+  const handleScroll = () => {
+    setScrolledToTop(window.pageYOffset < 120);
+  };
+
+  useEffect(() => {
+    if (!direction.isDown && !scrolledToTop) {
+      controls.start('visible');
+    } else {
+      controls.start('hidden');
+    }
+  }, [direction, controls, scrolledToTop]);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <Div className={direction.isUp ? hidden : visible}>
+    <Div initial="initial" variants={divVariants} animate={controls}>
       <Container>
         <DesktopNav />
         <MobileNav />
