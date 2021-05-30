@@ -51,7 +51,7 @@ const SEO = () => {
       <meta property="og:image:type" content="image/png" />
 
       {/* ================ Twitter ================  */}
-      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:card" content="summary_large_image" />
       <meta property="twitter:url" content={seo.url} />
       <meta name="twitter:creator" content={twitterUsername} />
       <meta name="twitter:title" content={seo.title} />
