@@ -6,8 +6,8 @@ import {useInView} from 'react-intersection-observer';
 import {motion, useAnimation} from 'framer-motion';
 import {IGatsbyImageData} from 'gatsby-plugin-image';
 
-import Container from '../../layout/Container';
-import MotionDiv from '../../layout/MotionDiv';
+import Container from '../../shared/Container';
+import MotionDiv from '../../shared/MotionDiv';
 import Project from './Project';
 
 /**

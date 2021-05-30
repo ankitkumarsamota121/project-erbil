@@ -5,7 +5,7 @@ import tw from 'twin.macro';
 
 import DesktopNav from './DesktopNav';
 import MobileNav from './MobileNav';
-import Container from '../../layout/Container';
+import Container from '../../shared/Container';
 import useScrollDirection from '../../../hooks/useScrollDirection';
 
 /**

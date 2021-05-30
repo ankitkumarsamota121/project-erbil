@@ -11,7 +11,7 @@ import LinkedinIcon from '../../../images/linkedin.svg';
 // @ts-expect-error : Just importing a friendly SVG
 import InstagramIcon from '../../../images/instagram.svg';
 
-import Container from '../../layout/Container';
+import Container from '../../shared/Container';
 
 /**
  * * Landing Styling

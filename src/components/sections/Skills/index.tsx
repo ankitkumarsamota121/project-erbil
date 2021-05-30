@@ -12,8 +12,8 @@ import NeuralIcon from '../../../images/neural.svg';
 // @ts-expect-error : Just importing a friendly SVG
 import CodingIcon from '../../../images/competitive.svg';
 
-import Container from '../../layout/Container';
-import MotionDiv from '../../layout/MotionDiv';
+import Container from '../../shared/Container';
+import MotionDiv from '../../shared/MotionDiv';
 
 const StyledOuterDiv = styled.div`
   ${tw`w-screen bg-background`}

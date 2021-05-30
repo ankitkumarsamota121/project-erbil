@@ -5,8 +5,8 @@ import tw from 'twin.macro';
 import {GatsbyImage} from 'gatsby-plugin-image';
 // import {Link} from 'react-scroll';
 
-import Container from '../../layout/Container';
-import MotionDiv from '../../layout/MotionDiv';
+import Container from '../../shared/Container';
+import MotionDiv from '../../shared/MotionDiv';
 
 /**
  * * About Section Styling
