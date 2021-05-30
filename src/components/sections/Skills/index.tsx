@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import tw from 'twin.macro';
+import {motion} from 'framer-motion';
 
 // @ts-expect-error : Just importing a friendly SVG
 import FrontendIcon from '../../../images/frontend.svg';
@@ -11,7 +12,8 @@ import NeuralIcon from '../../../images/neural.svg';
 // @ts-expect-error : Just importing a friendly SVG
 import CodingIcon from '../../../images/competitive.svg';
 
-import Container from '../../layout/Container';
+import Container from '../../shared/Container';
+import MotionDiv from '../../shared/MotionDiv';
 
 const StyledOuterDiv = styled.div`
   ${tw`w-screen bg-background`}
@@ -69,9 +71,7 @@ const StyledHeading = styled.div`
   }
 `;
 
-const Button = styled.button`
-  font-family: 'space grotesk';
-  outline: none;
+/*
   transform-origin: center;
   transition-duration: 300ms;
   &:hover {
@@ -80,6 +80,12 @@ const Button = styled.button`
   &:active {
     transform: scale(0.9);
   }
+*/
+
+const Button = styled(motion.button)`
+  font-family: 'space grotesk';
+  outline: none;
+
   &:focus {
     outline: none;
   }
@@ -94,56 +100,60 @@ const Button = styled.button`
 const Skills = () => (
   <StyledOuterDiv>
     <Container>
-      <OuterGrid>
-        <SkillsGrid>
-          <SkillDiv>
-            <StyledIcon>
-              <FrontendIcon tw="h-full w-full" />
-            </StyledIcon>
-            <StyledTitle>
-              Frontend
-              <br />
-              Development
-            </StyledTitle>
-          </SkillDiv>
-          <SkillDiv>
-            <StyledIcon>
-              <BackendIcon tw="h-full w-full" />
-            </StyledIcon>
-            <StyledTitle>
-              Backend
-              <br />
-              Development
-            </StyledTitle>
-          </SkillDiv>
-          <SkillDiv>
-            <StyledIcon>
-              <NeuralIcon tw="h-full w-full" />
-            </StyledIcon>
-            <StyledTitle>
-              Machine
-              <br />
-              Learning
-            </StyledTitle>
-          </SkillDiv>
-          <SkillDiv>
-            <StyledIcon>
-              <CodingIcon tw="h-full w-full" />
-            </StyledIcon>
-            <StyledTitle>
-              Competitive
-              <br />
-              Programming
-            </StyledTitle>
-          </SkillDiv>
-        </SkillsGrid>
-        <StyledContent>
-          <StyledHeading>I build things for the web</StyledHeading>
-          <a href="mailto:ankitkumarsamota121@gmail.com">
-            <Button>Get in touch</Button>
-          </a>
-        </StyledContent>
-      </OuterGrid>
+      <MotionDiv>
+        <OuterGrid>
+          <SkillsGrid>
+            <SkillDiv>
+              <StyledIcon>
+                <FrontendIcon tw="h-full w-full" />
+              </StyledIcon>
+              <StyledTitle>
+                Frontend
+                <br />
+                Development
+              </StyledTitle>
+            </SkillDiv>
+            <SkillDiv>
+              <StyledIcon>
+                <BackendIcon tw="h-full w-full" />
+              </StyledIcon>
+              <StyledTitle>
+                Backend
+                <br />
+                Development
+              </StyledTitle>
+            </SkillDiv>
+            <SkillDiv>
+              <StyledIcon>
+                <NeuralIcon tw="h-full w-full" />
+              </StyledIcon>
+              <StyledTitle>
+                Machine
+                <br />
+                Learning
+              </StyledTitle>
+            </SkillDiv>
+            <SkillDiv>
+              <StyledIcon>
+                <CodingIcon tw="h-full w-full" />
+              </StyledIcon>
+              <StyledTitle>
+                Competitive
+                <br />
+                Programming
+              </StyledTitle>
+            </SkillDiv>
+          </SkillsGrid>
+          <StyledContent>
+            <StyledHeading>I build things for the web</StyledHeading>
+            <a href="mailto:ankitkumarsamota121@gmail.com">
+              <Button whileHover={{scale: 1.1}} whileTap={{scale: 0.9}}>
+                Get in touch
+              </Button>
+            </a>
+          </StyledContent>
+        </OuterGrid>
+      </MotionDiv>
     </Container>
   </StyledOuterDiv>
 );
