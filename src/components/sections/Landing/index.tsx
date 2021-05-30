@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import styled from '@emotion/styled';
 import tw from 'twin.macro';
+import {motion} from 'framer-motion';
 import {Link} from 'react-scroll';
 
 // @ts-expect-error : Just importing a friendly SVG
@@ -55,18 +56,10 @@ const StyledNavigation = styled.div`
   ${tw`space-y-4 md:space-y-6 lg:space-y-8`}
 `;
 
-const StyledNavLink = styled(Link)`
+const StyledNavLink = styled(motion.div)`
   font-family: 'space grotesk';
   cursor: pointer;
   transform-origin: left;
-  transition-duration: 300ms;
-  &:hover {
-    transform: scale(1.1);
-  }
-  &:active {
-    transform: scale(0.9);
-  }
-
   ${tw`hidden sm:block`}
   ${tw`text-secondary tracking-wide`}
   ${tw`text-2xl lg:text-3xl`}
@@ -82,16 +75,8 @@ const StyledIconContainer = styled.div`
   ${tw`sm:col-start-3 space-x-8  md:space-x-12`}
 `;
 
-const StyledIcon = styled.a`
+const StyledIcon = styled(motion.a)`
   cursor: pointer;
-  transform-origin: center;
-  transition-duration: 300ms;
-  &:hover {
-    transform: scale(1.1);
-  }
-  &:active {
-    transform: scale(0.9);
-  }
   ${tw`w-8 h-8 md:w-12 md:h-12`}
 `;
 
@@ -121,39 +106,46 @@ const Landing = () => {
             <StyledSubHeading>Full Stack Developer</StyledSubHeading>
           </div>
           <StyledNavigation>
-            <StyledNavLink
-              to="projects-section"
-              smooth
-              duration={500}
-              offset={-120}
-            >
-              My Projects
-            </StyledNavLink>
-            <StyledNavLink to="about-section" smooth duration={500}>
-              About Me
-            </StyledNavLink>
-            <StyledNavLink to="about-section" smooth duration={500}>
-              Contact Me
-            </StyledNavLink>
+            <Link to="projects-section" smooth duration={500} offset={-120}>
+              <StyledNavLink whileHover={{scale: 1.1}} whileTap={{scale: 0.9}}>
+                My Projects
+              </StyledNavLink>
+            </Link>
+            <Link to="about-section" smooth duration={500}>
+              <StyledNavLink whileHover={{scale: 1.1}} whileTap={{scale: 0.9}}>
+                About Me
+              </StyledNavLink>
+            </Link>
+            <Link to="about-section" smooth duration={500}>
+              <StyledNavLink whileHover={{scale: 1.1}} whileTap={{scale: 0.9}}>
+                Contact Me
+              </StyledNavLink>
+            </Link>
           </StyledNavigation>
         </Grid>
         <Row>
           <StyledIconContainer>
             <StyledIcon
               target="_blank"
-              href="https://github.com/ankitkumarsamota121"
-            >
-              <GithubIcon tw="h-full w-full" />
-            </StyledIcon>
-            <StyledIcon
-              target="_blank"
               href="https://www.linkedin.com/in/ankitkumarsamota121/"
+              whileHover={{scale: 1.1}}
+              whileTap={{scale: 0.9}}
             >
               <LinkedinIcon tw="h-full w-full" />
             </StyledIcon>
             <StyledIcon
               target="_blank"
+              href="https://github.com/ankitkumarsamota121"
+              whileHover={{scale: 1.1}}
+              whileTap={{scale: 0.9}}
+            >
+              <GithubIcon tw="h-full w-full" />
+            </StyledIcon>
+            <StyledIcon
+              target="_blank"
               href="https://www.instagram.com/ak_samota/"
+              whileHover={{scale: 1.1}}
+              whileTap={{scale: 0.9}}
             >
               <InstagramIcon tw="h-full w-full" />
             </StyledIcon>

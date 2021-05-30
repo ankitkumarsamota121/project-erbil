@@ -6,6 +6,7 @@ import {GatsbyImage} from 'gatsby-plugin-image';
 // import {Link} from 'react-scroll';
 
 import Container from '../../layout/Container';
+import MotionDiv from '../../layout/MotionDiv';
 
 /**
  * * About Section Styling
@@ -108,34 +109,36 @@ const About = () => {
   return (
     <div id="about-section" tw="w-screen bg-background mt-32 sm:mt-48">
       <Container>
-        <StyledHeading>About Me</StyledHeading>
-        <Grid>
-          <GridImage>
-            <StyledImage>
-              <BackDiv />
-              <ShadowDiv>
-                <GatsbyImage image={imageData} alt="Ankit Samota" />
-              </ShadowDiv>
-            </StyledImage>
-          </GridImage>
-          <StyledText>
-            <p>
-              <strong>Hey! My name is Ankit Samota,</strong> and I’m a
-              final-year student for Industrial Design at NIT Rourkela.
-            </p>
-            <p tw="mt-4 md:mt-6">
-              <strong>I love to solve problems and build things.</strong> I have
-              been developing software for the past 2 years and my main focus
-              these days is to write performant and industry standard code
-              mainly in JavaScript. Whether it’s web development or competitive
-              programming, I love the challenge of finding a way and discovering
-              solutions.
-            </p>
-            <a href="mailto:ankitkumarsamota121@gmail.com">
-              <Button>Get in touch</Button>
-            </a>
-          </StyledText>
-        </Grid>
+        <MotionDiv>
+          <StyledHeading>About Me</StyledHeading>
+          <Grid>
+            <GridImage>
+              <StyledImage>
+                <BackDiv />
+                <ShadowDiv>
+                  <GatsbyImage image={imageData} alt="Ankit Samota" />
+                </ShadowDiv>
+              </StyledImage>
+            </GridImage>
+            <StyledText>
+              <p>
+                <strong>Hey! My name is Ankit Samota,</strong> and I’m a
+                final-year student for Industrial Design at NIT Rourkela.
+              </p>
+              <p tw="mt-4 md:mt-6">
+                <strong>I love to solve problems and build things.</strong> I
+                have been developing software for the past 2 years and my main
+                focus these days is to write performant and industry standard
+                code mainly in JavaScript. Whether it’s web development or
+                competitive programming, I love the challenge of finding a way
+                and discovering solutions.
+              </p>
+              <a href="mailto:ankitkumarsamota121@gmail.com">
+                <Button>Get in touch</Button>
+              </a>
+            </StyledText>
+          </Grid>
+        </MotionDiv>
       </Container>
     </div>
   );

@@ -4,6 +4,7 @@ import {css} from '@emotion/css';
 import tw from 'twin.macro';
 import {IGatsbyImageData} from 'gatsby-plugin-image';
 import {BgImage} from 'gbimage-bridge';
+import {motion} from 'framer-motion';
 
 // @ts-expect-error : Just a friendly SVG
 import GithubIcon from '../../../images/github.svg';
@@ -74,18 +75,28 @@ const StyledIconsDiv = styled.div`
   ${tw` mt-4 sm:mt-6`}
 `;
 
-const Icon = styled.a`
-  transform-origin: center;
-  transition-duration: 300ms;
-  &:hover {
-    transform: scale(1.1);
-  }
-  &:active {
-    transform: scale(0.9);
-  }
+const Icon = styled(motion.a)`
   ${tw`h-6 w-6`}
   ${tw`sm:w-8 sm:h-8`}
 `;
+
+/**
+ * * Motion Variants
+ */
+const divVariants = {
+  initial: {
+    y: 50,
+    opacity: 0,
+  },
+  final: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      ease: 'easeInOut',
+    },
+  },
+};
 
 /**
  * * Project Component
@@ -110,35 +121,47 @@ const ProjectDetails = ({
   const [isHovered] = useState(false);
 
   return (
-    <StyledBackground image={thumb}>
-      <StyledFilter className={isHovered ? filterHovered : filter} />
-      <StyledContent
-        className={isHovered ? contentHovered : content}
-        // onMouseEnter={() => setHovered(() => true)}
-        // onMouseLeave={() => setHovered(() => false)}
-      >
-        <StyledType>Featured Project</StyledType>
-        <StyledTitle>{title}</StyledTitle>
-        <StyledDescription>{description}</StyledDescription>
-        <StyledStackDiv>
-          {stack.map(s => (
-            <span key={s}>{s}</span>
-          ))}
-        </StyledStackDiv>
-        <StyledIconsDiv>
-          {github.length > 0 && (
-            <Icon href={github} target="_blank">
-              <GithubIcon tw="h-full w-full" />
-            </Icon>
-          )}
-          {link.length > 0 && (
-            <Icon href={link} target="_blank">
-              <LinkIcon tw="h-full w-full" />
-            </Icon>
-          )}
-        </StyledIconsDiv>
-      </StyledContent>
-    </StyledBackground>
+    <motion.div variants={divVariants}>
+      <StyledBackground image={thumb}>
+        <StyledFilter className={isHovered ? filterHovered : filter} />
+        <StyledContent
+          className={isHovered ? contentHovered : content}
+          // onMouseEnter={() => setHovered(() => true)}
+          // onMouseLeave={() => setHovered(() => false)}
+        >
+          <StyledType>Featured Project</StyledType>
+          <StyledTitle>{title}</StyledTitle>
+          <StyledDescription>{description}</StyledDescription>
+          <StyledStackDiv>
+            {stack.map(s => (
+              <span key={s}>{s}</span>
+            ))}
+          </StyledStackDiv>
+          <StyledIconsDiv>
+            {github.length > 0 && (
+              <Icon
+                href={github}
+                target="_blank"
+                whileHover={{scale: 1.1}}
+                whileTap={{scale: 0.9}}
+              >
+                <GithubIcon tw="h-full w-full" />
+              </Icon>
+            )}
+            {link.length > 0 && (
+              <Icon
+                href={link}
+                target="_blank"
+                whileHover={{scale: 1.1}}
+                whileTap={{scale: 0.9}}
+              >
+                <LinkIcon tw="h-full w-full" />
+              </Icon>
+            )}
+          </StyledIconsDiv>
+        </StyledContent>
+      </StyledBackground>
+    </motion.div>
   );
 };
 
