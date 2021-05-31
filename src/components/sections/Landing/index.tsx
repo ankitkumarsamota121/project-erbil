@@ -17,9 +17,9 @@ import Container from '../../shared/Container';
  * * Landing Styling
  */
 const StyledOuterDiv = styled.div`
-  height: 85vh;
+  min-height: 85vh;
   ${tw`w-screen bg-background`}
-  ${tw`flex flex-col justify-center items-center`}
+  ${tw`flex flex-col justify-center items-center py-20`}
 `;
 
 const Grid = styled.div`
@@ -29,7 +29,15 @@ const Grid = styled.div`
 const StyledHeading = styled.div`
   font-family: 'montserrat';
   ${tw`text-primary font-bold`}
-  ${tw`text-6xl md:text-7xl lg:text-8xl xl:text-9xl`}
+  ${tw`text-8xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl`}
+
+  @media (max-width: 560px) {
+    ${tw`text-7xl`}
+  }
+
+  @media (max-width: 420px) {
+    ${tw`text-6xl`}
+  }
 
   @media (max-width: 360px) {
     ${tw`text-5xl`}
@@ -41,13 +49,37 @@ const StyledOutline = styled.div`
   text-shadow: -1px -1px 0 #efedff, 1px -1px 0 #efedff, -1px 1px 0 #efedff,
     1px 1px 0 #efedff;
   ${tw`text-background font-bold`};
-  ${tw`text-6xl md:text-7xl lg:text-8xl xl:text-9xl`};
+  ${tw`text-8xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl`};
+
+  @media (max-width: 560px) {
+    ${tw`text-7xl`}
+  }
+
+  @media (max-width: 420px) {
+    ${tw`text-6xl`}
+  }
+
+  @media (max-width: 360px) {
+    ${tw`text-5xl`}
+  }
 `;
 
 const StyledSubHeading = styled.div`
   font-family: 'space grotesk';
   ${tw`text-secondary font-semibold tracking-wide`}
-  ${tw`text-2xl md:text-3xl xl:text-5xl`}
+  ${tw`text-4xl sm:text-2xl md:text-3xl xl:text-5xl`}
+
+  @media (max-width: 560px) {
+    ${tw`text-3xl`}
+  }
+
+  @media (max-width: 420px) {
+    ${tw`text-2xl`}
+  }
+
+  @media (max-width: 360px) {
+    ${tw`text-xl`}
+  }
 `;
 
 const StyledNavigation = styled.div`

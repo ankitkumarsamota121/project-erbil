@@ -124,11 +124,7 @@ const ProjectDetails = ({
     <motion.div variants={divVariants}>
       <StyledBackground image={thumb}>
         <StyledFilter className={isHovered ? filterHovered : filter} />
-        <StyledContent
-          className={isHovered ? contentHovered : content}
-          // onMouseEnter={() => setHovered(() => true)}
-          // onMouseLeave={() => setHovered(() => false)}
-        >
+        <StyledContent className={isHovered ? contentHovered : content}>
           <StyledType>Featured Project</StyledType>
           <StyledTitle>{title}</StyledTitle>
           <StyledDescription>{description}</StyledDescription>

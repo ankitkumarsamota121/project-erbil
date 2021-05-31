@@ -71,30 +71,19 @@ const StyledHeading = styled.div`
   }
 `;
 
-/*
-  transform-origin: center;
-  transition-duration: 300ms;
-  &:hover {
-    transform: scale(1.1);
-  }
-  &:active {
-    transform: scale(0.9);
-  }
-*/
-
-const Button = styled(motion.button)`
+const Button = styled(motion.a)`
   font-family: 'space grotesk';
   outline: none;
 
   &:focus {
     outline: none;
   }
-  ${tw`bg-primary text-primary rounded-full`}
+  ${tw`block bg-primary text-primary rounded-full`}
   ${tw`hidden sm:block`}
   ${tw`text-xl xl:text-2xl`}
   ${tw`self-center lg:self-start`}
   ${tw`px-8 lg:px-12 py-3 lg:py-4`}
-  ${tw`mt-12 xl:mt-16`}
+  ${tw`mt-8 lg:mt-12 xl:mt-16`}
 `;
 
 const Skills = () => (
@@ -146,11 +135,13 @@ const Skills = () => (
           </SkillsGrid>
           <StyledContent>
             <StyledHeading>I build things for the web</StyledHeading>
-            <a href="mailto:ankitkumarsamota121@gmail.com">
-              <Button whileHover={{scale: 1.1}} whileTap={{scale: 0.9}}>
-                Get in touch
-              </Button>
-            </a>
+            <Button
+              href="mailto:ankitkumarsamota121@gmail.com"
+              whileHover={{scale: 1.1}}
+              whileTap={{scale: 0.9}}
+            >
+              Get in touch
+            </Button>
           </StyledContent>
         </OuterGrid>
       </MotionDiv>
