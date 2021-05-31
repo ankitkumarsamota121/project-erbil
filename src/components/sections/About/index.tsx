@@ -18,7 +18,7 @@ const Grid = styled.div`
 `;
 
 const GridImage = styled.div`
-  ${tw`flex justify-center items-center`}
+  ${tw`flex justify-center md:justify-start items-center`}
   ${tw`md:col-start-1 md:col-span-4`}
 `;
 

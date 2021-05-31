@@ -12,6 +12,7 @@ import LinkedinIcon from '../../../images/linkedin.svg';
 import InstagramIcon from '../../../images/instagram.svg';
 
 import Container from '../../shared/Container';
+import MotionDiv from '../../shared/MotionDiv';
 
 /**
  * * Landing Styling
@@ -130,60 +131,71 @@ const Landing = () => {
 
   return (
     <StyledOuterDiv>
-      <Container>
-        <Grid>
-          <div tw="col-span-1 sm:col-span-2 space-y-4">
-            <StyledOutline>{phrases[idx]}</StyledOutline>
-            <StyledHeading>I&apos;m Ankit.</StyledHeading>
-            <StyledSubHeading>Full Stack Developer</StyledSubHeading>
-          </div>
-          <StyledNavigation>
-            <Link to="projects-section" smooth duration={500} offset={-120}>
-              <StyledNavLink whileHover={{scale: 1.1}} whileTap={{scale: 0.9}}>
-                My Projects
-              </StyledNavLink>
-            </Link>
-            <Link to="about-section" smooth duration={500}>
-              <StyledNavLink whileHover={{scale: 1.1}} whileTap={{scale: 0.9}}>
-                About Me
-              </StyledNavLink>
-            </Link>
-            <Link to="about-section" smooth duration={500}>
-              <StyledNavLink whileHover={{scale: 1.1}} whileTap={{scale: 0.9}}>
-                Contact Me
-              </StyledNavLink>
-            </Link>
-          </StyledNavigation>
-        </Grid>
-        <Row>
-          <StyledIconContainer>
-            <StyledIcon
-              target="_blank"
-              href="https://www.linkedin.com/in/ankitkumarsamota121/"
-              whileHover={{scale: 1.1}}
-              whileTap={{scale: 0.9}}
-            >
-              <LinkedinIcon tw="h-full w-full" />
-            </StyledIcon>
-            <StyledIcon
-              target="_blank"
-              href="https://github.com/ankitkumarsamota121"
-              whileHover={{scale: 1.1}}
-              whileTap={{scale: 0.9}}
-            >
-              <GithubIcon tw="h-full w-full" />
-            </StyledIcon>
-            <StyledIcon
-              target="_blank"
-              href="https://www.instagram.com/ak_samota/"
-              whileHover={{scale: 1.1}}
-              whileTap={{scale: 0.9}}
-            >
-              <InstagramIcon tw="h-full w-full" />
-            </StyledIcon>
-          </StyledIconContainer>
-        </Row>
-      </Container>
+      <MotionDiv>
+        <Container>
+          <Grid>
+            <div tw="col-span-1 sm:col-span-2 space-y-4">
+              <StyledOutline>{phrases[idx]}</StyledOutline>
+              <StyledHeading>I&apos;m Ankit.</StyledHeading>
+              <StyledSubHeading>Full Stack Developer</StyledSubHeading>
+            </div>
+            <StyledNavigation>
+              <Link to="projects-section" smooth duration={500} offset={-120}>
+                <StyledNavLink
+                  whileHover={{scale: 1.1}}
+                  whileTap={{scale: 0.9}}
+                >
+                  My Projects
+                </StyledNavLink>
+              </Link>
+              <Link to="about-section" smooth duration={500}>
+                <StyledNavLink
+                  whileHover={{scale: 1.1}}
+                  whileTap={{scale: 0.9}}
+                >
+                  About Me
+                </StyledNavLink>
+              </Link>
+              <Link to="about-section" smooth duration={500}>
+                <StyledNavLink
+                  whileHover={{scale: 1.1}}
+                  whileTap={{scale: 0.9}}
+                >
+                  Contact Me
+                </StyledNavLink>
+              </Link>
+            </StyledNavigation>
+          </Grid>
+          <Row>
+            <StyledIconContainer>
+              <StyledIcon
+                target="_blank"
+                href="https://www.linkedin.com/in/ankitkumarsamota121/"
+                whileHover={{scale: 1.1}}
+                whileTap={{scale: 0.9}}
+              >
+                <LinkedinIcon tw="h-full w-full" />
+              </StyledIcon>
+              <StyledIcon
+                target="_blank"
+                href="https://github.com/ankitkumarsamota121"
+                whileHover={{scale: 1.1}}
+                whileTap={{scale: 0.9}}
+              >
+                <GithubIcon tw="h-full w-full" />
+              </StyledIcon>
+              <StyledIcon
+                target="_blank"
+                href="https://www.instagram.com/ak_samota/"
+                whileHover={{scale: 1.1}}
+                whileTap={{scale: 0.9}}
+              >
+                <InstagramIcon tw="h-full w-full" />
+              </StyledIcon>
+            </StyledIconContainer>
+          </Row>
+        </Container>
+      </MotionDiv>
     </StyledOuterDiv>
   );
 };

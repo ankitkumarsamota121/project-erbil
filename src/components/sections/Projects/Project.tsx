@@ -15,7 +15,7 @@ import LinkIcon from '../../../images/link.svg';
  * * Project Styling
  */
 const StyledBackground = styled(BgImage)`
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   ${tw`bg-background bg-cover flex flex-col items-start rounded-lg`}
 `;
@@ -24,7 +24,7 @@ const filterHovered = css`
   opacity: 0;
 `;
 const filter = css`
-  opacity: 0.8;
+  opacity: 0.85;
 `;
 const StyledFilter = styled.div`
   z-index: -1;
@@ -93,7 +93,7 @@ const divVariants = {
     opacity: 1,
     transition: {
       duration: 0.5,
-      ease: 'easeInOut',
+      ease: [0.645, 0.045, 0.355, 1],
     },
   },
 };
