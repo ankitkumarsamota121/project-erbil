@@ -12,7 +12,7 @@ interface Props {
  * * MotionDiv Styling
  */
 const Div = styled(motion.div)`
-  ${tw`p-0 m-0 flex flex-col justify-center items-center`};
+  ${tw`p-0 m-0 w-full flex flex-col justify-center items-center`};
 `;
 
 /**

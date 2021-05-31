@@ -9,7 +9,7 @@ github: 'https://github.com/dscnitrourkela/project-kiwi'
 stack: 
   - ReactJS
   - NextJS
-  - Github
+  - ThemeUI
 link: 'https://hacknitr.tech'
 thumb: '../../src/images/hacknitr.png'
 ---

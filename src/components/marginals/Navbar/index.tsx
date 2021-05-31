@@ -53,7 +53,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <Div initial="initial" variants={divVariants} animate={controls}>
+    <Div initial="hidden" variants={divVariants} animate={controls}>
       <Container>
         <DesktopNav />
         <MobileNav />

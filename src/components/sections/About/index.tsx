@@ -2,8 +2,8 @@ import React from 'react';
 import {graphql, useStaticQuery} from 'gatsby';
 import styled from '@emotion/styled';
 import tw from 'twin.macro';
+import {motion} from 'framer-motion';
 import {GatsbyImage} from 'gatsby-plugin-image';
-// import {Link} from 'react-scroll';
 
 import Container from '../../shared/Container';
 import MotionDiv from '../../shared/MotionDiv';
@@ -18,7 +18,7 @@ const Grid = styled.div`
 `;
 
 const GridImage = styled.div`
-  ${tw`flex justify-center items-center`}
+  ${tw`flex justify-center md:justify-start items-center`}
   ${tw`md:col-start-1 md:col-span-4`}
 `;
 
@@ -69,28 +69,21 @@ const StyledHeading = styled.div`
   }
 `;
 
-const Button = styled.button`
+const Button = styled(motion.a)`
   font-family: 'space grotesk';
   transform-origin: center;
-  transition-duration: 300ms;
-  &:hover {
-    transform: scale(1.1);
-  }
-  &:active {
-    transform: scale(0.9);
-  }
   &:focus {
     outline: none;
   }
-  ${tw`bg-primary text-primary rounded-full`}
+  ${tw`bg-primary text-primary rounded-full block`}
+  ${tw`self-center md:self-start`}
   ${tw`text-xl xl:text-2xl`}
-  ${tw`self-center sm:self-start`}
   ${tw`px-8 lg:px-12 py-3 lg:py-4`}
   ${tw`mt-8 xl:mt-12`}
 `;
 
 /**
- * * About Section Styling
+ * * About Section Component
  */
 const About = () => {
   const data = useStaticQuery(
@@ -133,9 +126,13 @@ const About = () => {
                 competitive programming, I love the challenge of finding a way
                 and discovering solutions.
               </p>
-              <a href="mailto:ankitkumarsamota121@gmail.com">
-                <Button>Get in touch</Button>
-              </a>
+              <Button
+                href="mailto:ankitkumarsamota121@gmail.com"
+                whileHover={{scale: 1.1}}
+                whileTap={{scale: 0.9}}
+              >
+                Get in touch
+              </Button>
             </StyledText>
           </Grid>
         </MotionDiv>
